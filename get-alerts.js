@@ -26,7 +26,7 @@ const alertsToCreate = topics.map((topic, index) => ({
   name: topic,
   howOften: HOW_OFTEN.AT_MOST_ONCE_A_DAY,
   sources: SOURCE_TYPE.AUTOMATIC,
-  lang: 'any',
+  lang: 'en',
   region: 'any',
   howMany: HOW_MANY.ALL,
   deliverTo: DELIVER_TO.RSS,
