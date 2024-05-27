@@ -233,3 +233,8 @@ alerts.sync((err) => {
 [auth issues]: <https://github.com/adasq/google-alerts-api/issues?q=label%3Aauth-issues+>
 [tests]: <https://github.com/adasq/google-alerts-api/blob/master/tests/test.js>
 [how to get cookies]: <https://github.com/adasq/google-alerts-api#generate-cookies>
+
+
+<!-- RUN -->
+
+node create-alerts.js

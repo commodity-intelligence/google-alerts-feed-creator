@@ -16,7 +16,7 @@ for entry in json_data:
 csv_file_path = 'output.csv'
 
 # Extract id and rss fields
-result = [(entry['id'], entry['rss']) for entry in json_data]
+result = [(entry['name'], entry['rss']) for entry in json_data]
 
 # Write to CSV
 with open(csv_file_path, 'w', newline='') as csv_file:

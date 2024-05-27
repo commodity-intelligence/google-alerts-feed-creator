@@ -17,7 +17,7 @@ api.configure({
     cookies: COOKIES
 });
 
-const csvData = fs.readFileSync('topics.csv', 'utf8');
+const csvData = fs.readFileSync('data/global/input/topics.csv', 'utf8');
 const results = Papa.parse(csvData, { header: true }).data;
 const topics = results.map(row => row.topics);
 
@@ -53,8 +53,17 @@ api.sync(() => {
   }
 
 
-  alertsToCreate.forEach(alert => {
-    let alertPromise = createAlert(alert);
+  alertsToCreate.forEach((alert, index) => {
+    let alertPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        createAlert(alert)
+          .then(alert => {
+            console.log(`Creating alert for topic: ${alert.name}`);
+            resolve(alert);
+          })
+          .catch(reject);
+      }, Math.random() * 750 + 250); // Random interval between 0.25 and 1 second
+    });
     alertPromises.push(alertPromise);
   });
 
