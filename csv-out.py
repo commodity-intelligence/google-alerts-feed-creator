@@ -15,15 +15,16 @@ for entry in json_data:
 # Define CSV file path
 csv_file_path = 'output.csv'
 
-# Extract id and rss fields
-result = [(entry['name'], entry['rss']) for entry in json_data]
+result = []
+for id, entry in enumerate(json_data):
+    result.append((id+1, "'" + entry['name'] + "'", entry['rss'], 1, 1))
 
 # Write to CSV
 with open(csv_file_path, 'w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file)
     
     # Write header
-    csv_writer.writerow(['id', 'rss'])
+    csv_writer.writerow(['id', 'topics', 'url', 'provider_id', 'active'])
     
     # Write data
     csv_writer.writerows(result)
